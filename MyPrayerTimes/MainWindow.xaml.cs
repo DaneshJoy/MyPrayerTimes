@@ -75,15 +75,15 @@ namespace MyCalendar
                         var result = Newtonsoft.Json.JsonConvert.DeserializeObject<PrayerTimesResult>(jsonResult);
 
 
-                        labelDate.Content = $"تاریخ: {result.Today.Split("-")[0], 14}";
-                        labelCity.Content = $"شهر: {result.CityName}";
-                        labelFajr.Content = $"اذان صبح: {result.Imsaak, 10}";
-                        labelSunrise.Content = $"طلوع آفتاب: {result.Sunrise, 10}";
-                        labelDhuhr.Content = $"اذان ظهر: {result.Noon, 10}";
-                        labelSunset.Content = $"غروب آفتاب: {result.Sunset, 10}";
-                        labelMaghrib.Content = $"اذان مغرب: {result.Maghreb, 10}";
-                        labelMidnight.Content = $"نیمه شب:{result.Midnight, 10}";
-                        labelQiblaDirection.Content = $"خورشید روی قبله: {result.SimultaneityOfKaaba, 10}";
+                        labelDate.Content = $"{result.Today.Split("-")[0], 14}";
+                        labelCity.Content = $"{result.CityName}";
+                        labelFajr.Content = $"{result.Imsaak, 10}";
+                        labelSunrise.Content = $"{result.Sunrise, 10}";
+                        labelDhuhr.Content = $"{result.Noon, 10}";
+                        labelSunset.Content = $"{result.Sunset, 10}";
+                        labelMaghrib.Content = $"{result.Maghreb, 10}";
+                        labelMidnight.Content = $"{result.Midnight, 10}";
+                        labelQiblaDirection.Content = $"{result.SimultaneityOfKaaba, 10}";
                     }
                     else
                     {

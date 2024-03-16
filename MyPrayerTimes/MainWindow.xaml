@@ -5,29 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyCalendar"
         mc:Ignorable="d"
-        Title="MyCalendar" Height="121" Width="489" Loaded="Window_Loaded" Opacity="0.7" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" MouseDown="Window_MouseDown" WindowStartupLocation="Manual" Background="{x:Null}">
+        Title="MyCalendar" Height="121" Width="470" Loaded="Window_Loaded" Opacity="0.7" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" MouseDown="Window_MouseDown" WindowStartupLocation="Manual" Background="{x:Null}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="42*"/>
-            <RowDefinition Height="79*"/>
         </Grid.RowDefinitions>
-        <Border Background="#FF2C2C2C" CornerRadius="20, 20, 20, 20" Grid.RowSpan="2"/>
-        <ComboBox x:Name="comboBoxCities" HorizontalAlignment="Left" Margin="350,26,0,0" Width="129" SelectionChanged="comboBoxCities_SelectionChanged" Height="22" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Hidden" FontFamily="Yu Gothic UI Light" FontSize="14" BorderBrush="Cyan" Background="#FF2C2C2C">
-
-        </ComboBox>
-        <ProgressBar x:Name="progressBar" IsIndeterminate="True" Visibility="Collapsed" Foreground="#FF06AAB0" Background="#FF001831" Grid.RowSpan="2"/>
-        <StackPanel x:Name="panel_times" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-17,23,0,0" Width="152" Grid.Row="1"/>
-        <Label x:Name="labelDate" Margin="184,22,0,0" Content="تاریخ" FlowDirection="RightToLeft" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Grid.RowSpan="2" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <StackPanel x:Name="panel_times2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-120,0,0,0" Width="152" Grid.Row="1"/>
-        <Label x:Name="labelFajr" Content="اذان صبح" FlowDirection="RightToLeft" Margin="354,0,0,24" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="125" Grid.Row="1" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelSunrise" Content="طلوع آفتاب" FlowDirection="RightToLeft" Margin="196,0,0,24" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="137" Grid.Row="1" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelDhuhr" Content="اذان ظهر" FlowDirection="RightToLeft" Margin="6,0,0,24" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="168" Grid.Row="1" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelSunset" Content="غروب آفتاب" FlowDirection="RightToLeft" Margin="349,47,0,-3" HorizontalAlignment="Left" Width="130" Grid.Row="1" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelMaghrib" Content="اذان مغرب" FlowDirection="RightToLeft" Margin="194,47,0,-3" HorizontalAlignment="Left" Width="139" Grid.Row="1" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelMidnight" Content="نیمه شب شرعی" FlowDirection="RightToLeft" Margin="2,47,0,-3" HorizontalAlignment="Left" Width="172" Grid.Row="1" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelQiblaDirection" Content="خورشید روی قبله" FlowDirection="RightToLeft" Margin="5,22,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="169" Grid.RowSpan="2" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelCity" Content="شهر" Margin="350,23,0,0" FlowDirection="RightToLeft" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonDown="labelCity_MouseLeftButtonDown" BorderBrush="#FF19C8CE" BorderThickness="1,1,1,1" Grid.RowSpan="2" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Button Style="{StaticResource ButtonStyle}" x:Name="btn_close"  Content="X" HorizontalAlignment="Left" Margin="465,1,0,0" VerticalAlignment="Top" Height="20" Width="20" Cursor="Hand" MouseEnter="btn_mini_MouseEnter" BorderBrush="{x:Null}" MouseLeave="btn_mini_MouseLeave" Padding="1,0,1,1" Background="#FF2C2C2C" Foreground="White" Click="btn_close_Click" FontSize="14" FontWeight="Bold"/>
-        <Button Style="{StaticResource ButtonStyle}" x:Name="btn_minimize"  Content="―" HorizontalAlignment="Left" Margin="441,1,0,0" VerticalAlignment="Top" Height="20" Width="20" Cursor="Hand" MouseEnter="btn_mini_MouseEnter" BorderBrush="{x:Null}" MouseLeave="btn_mini_MouseLeave" Padding="1,0,1,2" Background="#FF2C2C2C" Foreground="White" Click="btn_minimize_Click" FontSize="14" FontWeight="Bold"/>
+        <Border Background="#FF2C2C2C" CornerRadius="20, 20, 20, 20"/>
+        <ComboBox x:Name="comboBoxCities" HorizontalAlignment="Left" Margin="350,26,0,0" Width="83" SelectionChanged="comboBoxCities_SelectionChanged" Height="26" VerticalAlignment="Top" Grid.RowSpan="2" FontFamily="Yu Gothic UI Light" FontSize="14" BorderBrush="Cyan" Background="#FF2C2C2C" Visibility="Hidden"/>
+        <ProgressBar x:Name="progressBar" IsIndeterminate="True" Foreground="#FF06AAB0" Background="#B22C2C2C" Margin="0,-1,0,1" Visibility="Collapsed"/>
+        <StackPanel x:Name="panel_times" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-17,65,0,0" Width="152"/>
+        <Label x:Name="labelDate" Margin="0,22,0,0" Content="0000/00/00" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Width="93" Grid.RowSpan="2" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <StackPanel x:Name="panel_times2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-120,0,0,0" Width="152"/>
+        <Label x:Name="labelFajr" Content="00:00:00" FlowDirection="RightToLeft" Margin="326,59,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelSunrise" Content="00:00:00" FlowDirection="RightToLeft" Margin="186,56,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelDhuhr" Content="00:00:00" FlowDirection="RightToLeft" Margin="12,56,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelSunset" Content="00:00:00" FlowDirection="RightToLeft" Margin="326,85,0,6" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelMaghrib" Content="00:00:00" FlowDirection="RightToLeft" Margin="186,85,0,6" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelMidnight" Content="00:00:00" FlowDirection="RightToLeft" Margin="12,85,0,6" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelQiblaDirection" Content="00:00:00" FlowDirection="RightToLeft" Margin="12,21,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelCity" Content="شهر" Margin="332,19,0,0" FlowDirection="RightToLeft" HorizontalAlignment="Left" Width="84" Height="34" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonDown="labelCity_MouseLeftButtonDown" BorderBrush="#FF19C8CE" BorderThickness="1,1,1,1" Grid.RowSpan="2" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Button Style="{StaticResource ButtonStyle}" x:Name="btn_close"  Content="X" HorizontalAlignment="Left" Margin="448,1,0,0" VerticalAlignment="Top" Height="20" Width="20" Cursor="Hand" MouseEnter="btn_mini_MouseEnter" BorderBrush="{x:Null}" MouseLeave="btn_mini_MouseLeave" Padding="1,0,1,1" Background="#FF2C2C2C" Foreground="White" Click="btn_close_Click" FontSize="14" FontWeight="Bold"/>
+        <Button Style="{StaticResource ButtonStyle}" x:Name="btn_minimize"  Content="―" HorizontalAlignment="Left" Margin="424,1,0,0" VerticalAlignment="Top" Height="20" Width="20" Cursor="Hand" MouseEnter="btn_mini_MouseEnter" BorderBrush="{x:Null}" MouseLeave="btn_mini_MouseLeave" Padding="1,0,1,2" Background="#FF2C2C2C" Foreground="White" Click="btn_minimize_Click" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="labelFajr_Copy" Content="اذان صبح" FlowDirection="RightToLeft" Margin="400,54,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="65" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelSunset_Copy" Content="غروب آفتاب" FlowDirection="RightToLeft" Margin="394,85,0,6" HorizontalAlignment="Left" Width="75" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelDate_Copy" Margin="274,21,0,0" Content="تاریخ" FlowDirection="RightToLeft" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="47" Grid.RowSpan="2" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelSunrise_Copy" Content="طلوع آفتاب" FlowDirection="RightToLeft" Margin="251,54,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelMaghrib_Copy" Content="اذان مغرب" FlowDirection="RightToLeft" Margin="250,85,0,6" HorizontalAlignment="Left" Width="73" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelQiblaDirection_Copy" Content="خورشید روی قبله" FlowDirection="RightToLeft" Margin="72,21,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelDhuhr_Copy" Content="اذان ظهر" FlowDirection="RightToLeft" Margin="91,54,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="86" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelMidnight_Copy" Content="نیمه شب شرعی" FlowDirection="RightToLeft" Margin="74,85,0,6" HorizontalAlignment="Left" Width="103" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelCity_Copy" Content="شهر" Margin="377,21,0,0" FlowDirection="RightToLeft" HorizontalAlignment="Left" Width="84" Height="30" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonDown="labelCity_MouseLeftButtonDown" Grid.RowSpan="2" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
     </Grid>
 </Window>
