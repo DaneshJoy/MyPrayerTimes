@@ -137,6 +137,13 @@ namespace MyCalendar
         {
             (sender as Button).Foreground = Brushes.White;
         }
+
+        private void btn_refresh_Click(object sender, RoutedEventArgs e)
+        {
+            string selectedCity = comboBoxCities.SelectedItem.ToString();
+            int cityCode = cities[selectedCity];
+            _ = getInfo(cityCode);
+        }
     }
 
 
