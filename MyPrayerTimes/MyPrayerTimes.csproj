@@ -5,11 +5,21 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>299096_calendar_clock_icon.ico</ApplicationIcon>
+    <ApplicationIcon>icons\299096_calendar_clock_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="299096_calendar_clock_icon.ico" />
+    <None Remove="maghreb.png" />
+    <None Remove="midnight.png" />
+    <None Remove="noon.png" />
+    <None Remove="qiblah.png" />
+    <None Remove="sobh.png" />
+    <None Remove="sunrise.png" />
+    <None Remove="sunset.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icons\299096_calendar_clock_icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +28,16 @@
 
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="maghreb.png" />
+    <Resource Include="midnight.png" />
+    <Resource Include="noon.png" />
+    <Resource Include="qiblah.png" />
+    <Resource Include="sobh.png" />
+    <Resource Include="sunrise.png" />
+    <Resource Include="sunset.png" />
   </ItemGroup>
 
 </Project>
