@@ -36,7 +36,6 @@
     <Resource Include="maghreb.png" />
     <Resource Include="midnight.png" />
     <Resource Include="noon.png" />
-    <Resource Include="qiblah.png" />
     <Resource Include="sobh.png" />
     <Resource Include="sunrise.png" />
     <Resource Include="sunset.png" />

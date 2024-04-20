@@ -65,62 +65,74 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
-        <Border Background="#FF2C2C2C" CornerRadius="20, 20, 20, 20">
-            <Button Style="{DynamicResource ButtonStyle1}" x:Name="btn_refresh" Content="" Margin="28,6,540,120" Width="60" Height="60" Click="btn_refresh_Click" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Refresh">
-                <Button.Background>
-                    <ImageBrush ImageSource="/icon.png" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
-        </Border>
-        <ComboBox x:Name="comboBoxCities" HorizontalAlignment="Left" Margin="474,20,0,0" Width="94" SelectionChanged="comboBoxCities_SelectionChanged" Height="30" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="14" BorderBrush="Cyan" Background="#FF2C2C2C" Visibility="Hidden"/>
+        <Border Background="#FF2C2C2C" CornerRadius="20, 20, 20, 20"/>
+        <ComboBox x:Name="comboBoxCities" HorizontalAlignment="Left" Margin="486,20,0,0" Width="80" SelectionChanged="comboBoxCities_SelectionChanged" Height="30" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="14" BorderBrush="Cyan" Background="#FF2C2C2C" Visibility="Hidden"/>
         <ProgressBar x:Name="progressBar" IsIndeterminate="True" Foreground="#FF06AAB0" Background="#B22C2C2C" Margin="0,-1,0,1" Visibility="Collapsed"/>
         <StackPanel x:Name="panel_times" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-17,65,0,0" Width="152"/>
-        <Label x:Name="labelDate" Margin="324,24,0,0" Content="0000/00/00" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="98" Foreground="White" FontFamily="Consolas"/>
-        <Label x:Name="labelFajr" Content="00:00:00" Margin="418,0,0,0" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="75" Foreground="White" FontFamily="Consolas"/>
-        <Label x:Name="labelSunrise" Content="00:00:00" Margin="217,0,0,0" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="75" Foreground="White" FontFamily="Consolas"/>
-        <Label x:Name="labelDhuhr" Content="00:00:00" Margin="16,0,0,0" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="79" Foreground="White" FontFamily="Consolas"/>
-        <Label x:Name="labelSunset" Content="00:00:00" Margin="418,140,0,16" HorizontalAlignment="Left" Width="75" Foreground="White" FontFamily="Consolas" Height="30"/>
-        <Label x:Name="labelMaghrib" Content="00:00:00" Margin="215,140,0,16" HorizontalAlignment="Left" Width="75" Foreground="White" FontFamily="Consolas" Height="30"/>
-        <Label x:Name="labelMidnight" Content="00:00:00" Margin="16,140,0,16" HorizontalAlignment="Left" Width="85" Foreground="White" FontFamily="Consolas" Height="30"/>
-        <Label x:Name="labelCity" Content="شهر" FlowDirection="RightToLeft" Margin="474,18,0,0" Width="93" Height="34" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonDown="labelCity_MouseLeftButtonDown" BorderBrush="#FF19C8CE" BorderThickness="1,1,1,1" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14" HorizontalAlignment="Left"/>
-        <Label x:Name="labelQiblaDirection" Content="00:00:00" Margin="116,25,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="87" Foreground="White" FontFamily="Consolas"/>
+        <Label x:Name="labelDate" Margin="336,23,0,0" Content="0000/00/00" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="98" Foreground="White" FontFamily="Consolas"/>
+        <Label x:Name="labelFajr" Content="00:00:00" Margin="403,76,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Foreground="White" FontFamily="Consolas" FontSize="14"/>
+        <Label x:Name="labelSunrise" Content="00:00:00" Margin="197,76,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Foreground="White" FontFamily="Consolas" FontSize="14"/>
+        <Label x:Name="labelDhuhr" Content="00:00:00" Margin="1,76,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Foreground="White" FontFamily="Consolas" FontSize="14"/>
+        <Label x:Name="labelSunset" Content="00:00:00" Margin="403,138,0,18" HorizontalAlignment="Left" Width="90" Foreground="White" FontFamily="Consolas" Height="30" FontSize="14"/>
+        <Label x:Name="labelMaghrib" Content="00:00:00" Margin="195,138,0,18" HorizontalAlignment="Left" Width="90" Foreground="White" FontFamily="Consolas" Height="30" FontSize="14"/>
+        <Label x:Name="labelMidnight" Content="00:00:00" Margin="1,138,0,18" HorizontalAlignment="Left" Width="90" Foreground="White" FontFamily="Consolas" Height="30" FontSize="14"/>
+        <Label x:Name="labelCity" Content="شهر" FlowDirection="RightToLeft" Margin="487,18,0,0" Width="80" Height="34" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonDown="labelCity_MouseLeftButtonDown" BorderBrush="#FF19C8CE" BorderThickness="0,0,0,1" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14" HorizontalAlignment="Left"/>
+        <Label x:Name="labelQiblaDirection" Content="00:00:00" Margin="6,23,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="87" Foreground="White" FontFamily="Consolas"/>
         <Button Style="{StaticResource ButtonStyle}" x:Name="btn_close"  Content="X" HorizontalAlignment="Left" Margin="602,1,0,0" VerticalAlignment="Top" Height="20" Width="20" Cursor="Hand" MouseEnter="btn_mini_MouseEnter" BorderBrush="{x:Null}" MouseLeave="btn_mini_MouseLeave" Padding="1,0,1,1" Background="#FF2C2C2C" Foreground="White" Click="btn_close_Click" FontSize="14" FontWeight="Bold"/>
         <Button Style="{StaticResource ButtonStyle}" x:Name="btn_minimize"  Content="―" HorizontalAlignment="Left" Margin="578,1,0,0" VerticalAlignment="Top" Height="20" Width="20" Cursor="Hand" MouseEnter="btn_mini_MouseEnter" BorderBrush="{x:Null}" MouseLeave="btn_mini_MouseLeave" Padding="1,0,1,2" Background="#FF2C2C2C" Foreground="White" Click="btn_minimize_Click" FontSize="14" FontWeight="Bold"/>
         <Label x:Name="labelFajr_Copy" Content="اذان صبح" FlowDirection="RightToLeft" Margin="486,73,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
         <Label x:Name="labelSunset_Copy" Content="غروب آفتاب" FlowDirection="RightToLeft" Margin="484,135,0,21" HorizontalAlignment="Left" Width="75" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
-        <Label x:Name="labelDate_Copy" Margin="414,20,0,0" Content="تاریخ" FlowDirection="RightToLeft" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="47" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelSunrise_Copy" Content="طلوع آفتاب" FlowDirection="RightToLeft" Margin="290,73,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelMaghrib_Copy" Content="اذان مغرب" FlowDirection="RightToLeft" Margin="285,135,0,21" HorizontalAlignment="Left" Width="73" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
-        <Label x:Name="labelQiblaDirection_Copy" Content="خورشید روی قبله" FlowDirection="RightToLeft" Margin="189,20,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelDhuhr_Copy" Content="اذان ظهر" FlowDirection="RightToLeft" Margin="83,73,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
-        <Label x:Name="labelMidnight_Copy" Content="نیمه شب" FlowDirection="RightToLeft" Margin="81,135,0,21" HorizontalAlignment="Left" Width="75" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelDate_Copy" Margin="426,19,0,0" Content="تاریخ" FlowDirection="RightToLeft" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="47" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelSunrise_Copy" Content="طلوع آفتاب" FlowDirection="RightToLeft" Margin="285,73,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelMaghrib_Copy" Content="اذان مغرب" FlowDirection="RightToLeft" Margin="280,135,0,21" HorizontalAlignment="Left" Width="73" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
+        <Label x:Name="labelQiblaDirection_Copy" Content="خورشید روی قبله" FlowDirection="RightToLeft" Margin="81,18,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelDhuhr_Copy" Content="اذان ظهر" FlowDirection="RightToLeft" Margin="73,73,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+        <Label x:Name="labelMidnight_Copy" Content="نیمه شب" FlowDirection="RightToLeft" Margin="71,135,0,21" HorizontalAlignment="Left" Width="75" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14" Height="30"/>
         <Label x:Name="labelCity_Copy" Content="شهر" Margin="564,18,0,0" FlowDirection="RightToLeft" HorizontalAlignment="Left" Width="39" Height="30" VerticalAlignment="Top" Cursor="Hand" MouseLeftButtonDown="labelCity_MouseLeftButtonDown" Foreground="Cyan" FontFamily="Yu Gothic UI Light" FontSize="14"/>
         <Label Content="" Margin="556,58,12,68" Width="60" Height="60" Opacity="0.8">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Label.Effect>
             <Label.Background>
                 <ImageBrush ImageSource="/sobh.png"/>
             </Label.Background>
         </Label>
-        <Label Content="" Margin="360,58,208,68" Width="60" Height="60" Opacity="0.8">
+        <Label Content="" Margin="355,58,213,68" Width="60" Height="60" Opacity="0.8">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Label.Effect>
             <Label.Background>
                 <ImageBrush ImageSource="/sunrise.png"/>
             </Label.Background>
         </Label>
-        <Label Content="" Margin="153,58,415,68" Width="60" Height="60" Opacity="0.8">
+        <Label Content="" Margin="143,58,425,68" Width="60" Height="60" Opacity="0.8">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Label.Effect>
             <Label.Background>
                 <ImageBrush ImageSource="/noon.png"/>
             </Label.Background>
         </Label>
         <Label Content="" Margin="556,121,12,5" Width="60" Height="60" Opacity="0.8">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Label.Effect>
             <Label.Background>
                 <ImageBrush ImageSource="/sunset.png"/>
             </Label.Background>
         </Label>
-        <Label Content="" Margin="360,121,208,5" Width="60" Height="60" Opacity="0.8">
+        <Label Content="" Margin="355,121,213,5" Width="60" Height="60" Opacity="0.8">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Label.Effect>
             <Label.Background>
                 <ImageBrush ImageSource="/maghreb.png"/>
             </Label.Background>
         </Label>
-        <Label Content="" Margin="153,121,415,5" Width="60" Height="60" Opacity="0.8">
+        <Label Content="" Margin="143,121,425,5" Width="60" Height="60" Opacity="0.8">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Label.Effect>
             <Label.Background>
                 <ImageBrush ImageSource="/midnight.png"/>
             </Label.Background>
