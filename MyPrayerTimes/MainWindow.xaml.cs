@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Media;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Net.Http;
-using Newtonsoft.Json;
+using System.Windows.Threading;
 
 namespace MyCalendar
 {
@@ -22,6 +18,9 @@ namespace MyCalendar
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer timer;
+        SoundPlayer player;
+
         private readonly string baseUrl = "https://prayer.aviny.com/api/prayertimes/";
         private readonly Dictionary<string, int> cities = new Dictionary<string, int>
         {
@@ -38,6 +37,73 @@ namespace MyCalendar
             string selectedCity = comboBoxCities.SelectedItem.ToString();
             int cityCode = cities[selectedCity];
             _ = getInfo(cityCode);
+
+            labelNow.Content = DateTime.Now.ToString("HH:mm:ss");
+
+            // Initialize and start the timer
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(0.9);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            // Initialize sound player
+            var path = "mixkit-bell-notification-933.wav";
+            player = new SoundPlayer(path);
+            player.Load();
+        }
+
+        // Helper method to find all child controls of a given type
+        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Update the label with the current time
+            var now = DateTime.Now.ToString("HH:mm:ss");
+            labelNow.Content = now;
+
+            // Iterate through all labels in your form
+            foreach (var item in FindVisualChildren<Label>(this))
+            {
+                if (item.Name.Contains("Time"))
+                {
+                    // Check if the label's content is equal to the current time
+                    if (item.Content != null && item.Content.ToString().Replace(" ", "").Equals(now))
+                    {
+                        this.Topmost = true;
+                        item.Foreground = Brushes.Red;
+                        item.Background = Brushes.White;
+                        player.Play();
+                        this.Topmost = false;
+                        break;
+                    }
+                    else if (item.Content != null && item.Content.ToString().Contains(now[0..5]) == false)              {
+                        if (item.Foreground == Brushes.Red)
+                        {
+                            item.Foreground = Brushes.White;
+                            item.Background = Brushes.Transparent;
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         private void InitializeCityComboBox()
@@ -77,13 +143,13 @@ namespace MyCalendar
 
                         labelDate.Content = $"{result.Today.Split("-")[0], 14}";
                         labelCity.Content = $"{result.CityName}";
-                        labelFajr.Content = $"{result.Imsaak, 10}";
-                        labelSunrise.Content = $"{result.Sunrise, 10}";
-                        labelDhuhr.Content = $"{result.Noon, 10}";
-                        labelSunset.Content = $"{result.Sunset, 10}";
-                        labelMaghrib.Content = $"{result.Maghreb, 10}";
-                        labelMidnight.Content = $"{result.Midnight, 10}";
-                        labelQiblaDirection.Content = $"{result.SimultaneityOfKaaba, 10}";
+                        labelFajrTime.Content = $"{result.Imsaak, 10}";
+                        labelSunriseTime.Content = $"{result.Sunrise, 10}";
+                        labelDhuhrTime.Content = $"{result.Noon, 10}";
+                        labelSunsetTime.Content = $"{result.Sunset, 10}";
+                        labelMaghribTime.Content = $"{result.Maghreb, 10}";
+                        labelMidnightTime.Content = $"{result.Midnight, 10}";
+                        labelQiblaDirectionTime.Content = $"{result.SimultaneityOfKaaba, 10}";
                     }
                     else
                     {
@@ -136,6 +202,11 @@ namespace MyCalendar
         private void btn_mini_MouseLeave(object sender, MouseEventArgs e)
         {
             (sender as Button).Foreground = Brushes.White;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            timer.Stop();
         }
     }
 
